@@ -28,6 +28,5 @@ for k in range(ctr):
     if su>m:
         m=su
         nlist.append(k)
-index=nlist[-1]
-print(complist[index])
+print(complist[nlist[-1]])
 
