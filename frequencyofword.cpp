@@ -5,7 +5,8 @@ using namespace std;
 int main()
 {
     map<string,int>d;
-    string s="hello world babe babe";
+    string s;
+    getline(cin,s)
     s+=" ";
     string word="";
     int i;
