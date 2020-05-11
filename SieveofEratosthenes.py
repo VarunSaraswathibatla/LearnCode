@@ -17,7 +17,7 @@ while(i*i<=n):
             temp[k]=False
     i+=1
     
-for z in range(2,n):
+for z in range(2,n+1):
     if(temp[z]):
         print(z)
     
