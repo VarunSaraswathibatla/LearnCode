@@ -54,32 +54,24 @@ void insert(Node** head,int pos,int newdata)
 
 void del(Node **head_ref, int key) 
 { 
-    
-     Node* temp = *head_ref, *prev; 
-  
-    
-    if (temp != NULL && temp->data == key) 
+   Node* temp = *head_ref, *prev; 
+if (temp != NULL && temp->data == key) 
     { 
         *head_ref = temp->next;   
         free(temp);               
         return; 
     } 
-  
-    
-    while (temp != NULL && temp->data != key) 
+while (temp != NULL && temp->data != key) 
     { 
         prev = temp; 
         temp = temp->next; 
     } 
-  
-    
-    if (temp == NULL) return; 
-  
-    
-    prev->next = temp->next; 
+if (temp == NULL) return; 
+  prev->next = temp->next; 
   
     free(temp);  
 } 
+
 void printList(Node** head)
 {
     Node* node=*head;
@@ -90,6 +82,8 @@ void printList(Node** head)
         
     }cout<<endl;
     }
+
+
 int main()
 {
     Node* head=NULL;
