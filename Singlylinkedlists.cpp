@@ -57,21 +57,14 @@ void del(Node **head_ref, int key)
         free(temp);               
         return; 
     } 
-  
-    
-    while (temp != NULL && temp->data != key) 
+ while (temp != NULL && temp->data != key) 
     { 
         prev = temp; 
         temp = temp->next; 
     } 
-  
-    
-    if (temp == NULL) return; 
-  
-    
-    prev->next = temp->next; 
-  
-    free(temp);  
+ if (temp == NULL) return; 
+ prev->next = temp->next; 
+ free(temp);  
 } 
 
 int main()
