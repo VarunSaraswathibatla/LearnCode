@@ -80,25 +80,27 @@ void del(Node **head_ref, int key)
   
     free(temp);  
 } 
-
+void printList(Node** head)
+{
+    Node* node=*head;
+     while(node!=NULL)
+    {
+        cout<<node->data<<" ";
+        node=node->next;
+        
+    }cout<<endl;
+    }
 int main()
 {
     Node* head=NULL;
     insertfirst(&head,10);
     append(&head,30);
-    insert(&head,1,15); // Here position is according to  array indexing where the first element is at '0'.
+    insert(&head,1,15);// Here position is according to  array indexing where the first element is at '0'.
+    printList(&head);
     insert(&head,2,20);
     insertfirst(&head,5);
     insert(&head,4,22);
     insert(&head,5,25);
     del(&head,22);
-    
-     
-    
-    while(head!=NULL)
-    {
-        cout<<head->data<<" ";
-        head=head->next;
-        
-    }
-    }
+    printList(&head);
+}
