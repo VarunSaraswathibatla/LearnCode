@@ -65,13 +65,13 @@ void del(Node **head_ref, int key)
         temp = temp->next; 
     } 
   
-    // If key was not present in linked list 
+    
     if (temp == NULL) return; 
   
     
     prev->next = temp->next; 
   
-    free(temp);  // Free memory 
+    free(temp);  
 } 
 
 int main()
