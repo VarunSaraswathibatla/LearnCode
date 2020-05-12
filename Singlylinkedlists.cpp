@@ -37,8 +37,15 @@ void append(Node**head,int newdata)
     last->next=newnode;
 }
 
-void insert(Node* prev,int newdata)
-{
+void insert(Node** head,int pos,int newdata)
+{  
+    int i;
+    Node* prev=*head;
+    for(i=1;i<pos;i++)
+   {
+    prev=prev->next;
+   }
+   
     Node* newnode=new Node();
     newnode->data=newdata;
     newnode->next=prev->next;
@@ -57,14 +64,21 @@ void del(Node **head_ref, int key)
         free(temp);               
         return; 
     } 
- while (temp != NULL && temp->data != key) 
+  
+    
+    while (temp != NULL && temp->data != key) 
     { 
         prev = temp; 
         temp = temp->next; 
     } 
- if (temp == NULL) return; 
- prev->next = temp->next; 
- free(temp);  
+  
+    
+    if (temp == NULL) return; 
+  
+    
+    prev->next = temp->next; 
+  
+    free(temp);  
 } 
 
 int main()
@@ -72,14 +86,14 @@ int main()
     Node* head=NULL;
     insertfirst(&head,10);
     append(&head,30);
-    insert(head,20);
+    insert(&head,1,15);
+    insert(&head,2,20);
     insertfirst(&head,5);
-    insert(head->next,15);
-    insert(head->next->next->next,25);
-    append(&head,40);
-    insert(head->next->next->next->next->next,32);
-    insert(head->next->next->next->next->next->next,35);
-    del(&head,32); 
+    insert(&head,4,22);
+    insert(&head,5,25);
+    del(&head,22);
+    
+     
     
     while(head!=NULL)
     {
