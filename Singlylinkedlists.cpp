@@ -86,7 +86,7 @@ int main()
     Node* head=NULL;
     insertfirst(&head,10);
     append(&head,30);
-    insert(&head,1,15);
+    insert(&head,1,15); // Here position is according to  array indexing where the first element is at '0'.
     insert(&head,2,20);
     insertfirst(&head,5);
     insert(&head,4,22);
