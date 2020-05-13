@@ -241,50 +241,60 @@ def game(turn,board):
             
   
 print("                              Welcome to  Varun Tic-Tac-Toe Mania                                                     ")
-board=list(' ' for i in range(9))
-a=input("Enter your name: ")
-opt=input("Wanna play Single or Two Player(S/T): ")
-if (opt=="T" or opt=="t"):
-            b=input("Enter your friend's name: ")
-            p1=[]
-            p2=[]               
-            ch1=input("Enter your choice(X/O): ")
-            if ch1=="X" or ch1=="x":
-                print("So",b," option will be 'O' so he will start first")
-                turn=0
-                play1,play2=b,a
-                
-                
-                
+for w in range(100):
+
+
+            board=list(' ' for i in range(9))
+            a=input("Enter your name: ")
+            opt=input("Wanna play Single or Two Player(S/T): ")
+            if (opt=="T" or opt=="t"):
+                        b=input("Enter your friend's name: ")
+                        p1=[]
+                        p2=[]               
+                        ch1=input("Enter your choice(X/O): ")
+                        if ch1=="X" or ch1=="x":
+                            print("So",b," option will be 'O' so he will start first")
+                            turn=0
+                            play1,play2=b,a
+                            
+                            
+                            
+                        else:
+                            print("So",b, "option will be 'X' so you will start first")
+                            turn=1
+                            play1,play2=a,b
+
+
+                            
+                        display(board)
+                        game(turn,board)
             else:
-                print("So",b, "option will be 'X' so you will start first")
-                turn=1
-                play1,play2=a,b
+                b="Computer"
+                p1=[]
+                p2=[]
+                ch1=input("Enter your choice(X/O): ")
+                if ch1=="O" or ch1=="o":
+                      print("So",b," option will be 'X' so you will start first...")
+                      display(board)
+                      
+                      turn=1
+                      compopt="X"
+                      userchoice="O"
+                      gamesingle(turn,board,compopt)
+                      
+                else:
+                     print("So",b," option will be 'O' he  will start first...")
+                     display(board)
+                     
+                     compopt="O"
+                     userchoice="X"
+                     turn=0
+                     
+                     gamesingle(turn,board,compopt) 
+            playagain=input("Wanna Try Again.......(Y/N): ")
+            if playagain=="Y" or playagain=="y":
+                continue
+            else:
+                print("THANK YOU.............HOPE YOU HAD FUN.......")
+                break
 
-
-                
-            display(board)
-            game(turn,board)
-else:
-    b="Computer"
-    p1=[]
-    p2=[]
-    ch1=input("Enter your choice(X/O): ")
-    if ch1=="O" or ch1=="o":
-          print("So",b," option will be 'X' so you will start first...")
-          display(board)
-          
-          turn=1
-          compopt="X"
-          userchoice="O"
-          gamesingle(turn,board,compopt)
-          
-    else:
-         print("So",b," option will be 'O' he  will start first...")
-         display(board)
-         
-         compopt="O"
-         userchoice="X"
-         turn=0
-         
-         gamesingle(turn,board,compopt) 
