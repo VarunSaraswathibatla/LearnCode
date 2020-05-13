@@ -1,11 +1,8 @@
 """                                           
                                                    VARUN TIC-TAC-TOE MANIA
-
-
 This program is my Tic-Tac-Toe Game.......
 It has both Single and Two Player options.............
 Try this once and have Fun.....................
-
 """
 
 
@@ -24,7 +21,7 @@ def display(board):
 
 def player1(p1):
     
-    z=int(input(f"{play1} enter your choice from 1 to 9:"))
+    z=int(input("%s enter your choice from 1 to 9:"%play1))
     z=z-1
     if(z>=0 and z<9):
         if(z not in p2):
@@ -46,7 +43,7 @@ def player1(p1):
 
 def playersingle(p1,userchoice):
     
-    z=int(input(f"{a} enter your choice from 1 to 9:"))
+    z=int(input("%s enter your choice from 1 to 9:"%a))
     z=z-1
     if(z>=0 and z<9):
         if(z not in p2):
@@ -84,7 +81,7 @@ def playercomp(p2,compopt):
 
 
 def player2(p2):
-    z=int(input(f"{play2} please enter your choice from 1 to 9:"))
+    z=int(input("%s please enter your choice from 1 to 9:"%play2))
     z=z-1
     if(z>=0 and z<9):
         if(z not in p1):
@@ -143,14 +140,14 @@ def gamesingle(turn,board,compopt) :
                 print("Computer won the match")
                 break
             elif(win(board,turn)=="O"):
-                print(f"{a} won the match")
+                print("%s won the match"%a)
                 break
             playercomp(p2,compopt)
             if(win(board,turn)=="X"):
                 print("Computer won the match")
                 break
             elif(win(board,turn)=="O"):
-                print(f"{a} won the match")
+                print("%s won the match"%a)
                 break
             elif(win(board,turn)==False):
                 print("Its a Draw!")
@@ -162,7 +159,7 @@ def gamesingle(turn,board,compopt) :
                 print("Computer won the match")
                 
             elif(win(board,turn)=="O"):
-                print(f"{a} won the match")
+                print("%s won the match"%a)
                 
             else:
                 print("Its a Draw")
@@ -173,14 +170,14 @@ def gamesingle(turn,board,compopt) :
         
                playercomp(p2,compopt)
                if(win(board,turn)=="X"):
-                       print(f"{a} won the match")
+                       print("%s won the match"%a)
                        break
                elif(win(board,turn)=="O"):
                          print("Computer won the match")
                          break
                playersingle(p1,userchoice)
                if(win(board,turn)=="X"):
-                       print(f"{a} won the match")
+                       print("%s won the match"%a)
                        break
                elif(win(board,turn)=="O"):
                          print("Computer won the match")
@@ -191,7 +188,7 @@ def gamesingle(turn,board,compopt) :
         else:
            playercomp(p2,compopt)
            if(win(board,turn)=="X"):
-                       print(f"{a} won the match")
+                       print("%s won the match"%a)
     
     
            elif(win(board,turn)=="O"):
@@ -210,17 +207,17 @@ def game(turn,board):
         
             player1(p1)
             if(win(board,turn)=="X"):
-                print(f"{play2} won the match")
+                print("%s won the match"%play2)
                 break
             elif(win(board,turn)=="O"):
-                print(f"{play1} won the match")
+                print("%s won the match"%play1)
                 break
             player2(p2)
             if(win(board,turn)=="X"):
-                print(f"{play2} won the match")
+                print("%s won the match"%play2)
                 break
             elif(win(board,turn)=="O"):
-                print(f"{play1} won the match")
+                print("%s won the match"%play1)
                 break
             elif(win(board,turn)==False):
                 print("Its a Draw!")
@@ -229,10 +226,10 @@ def game(turn,board):
         else:
             player1(p1)
             if(win(board,turn)=="X"):
-                print(f"{play2} won the match")
+                print("%s won the match"%play2)
                 
             elif(win(board,turn)=="O"):
-                print(f"{play1} won the match")
+                print("%s won the match"%play1)
                 
             else:
                 print("Its a Draw")
@@ -296,4 +293,3 @@ for w in range(100):
             else:
                 print("THANK YOU.............HOPE YOU HAD FUN.......")
                 break
-
