@@ -1,4 +1,4 @@
-"""                                             Varun Tic-Tac-Toe Mania
+"""                                             VARUN TIC-TAC-TOE MANIA
 
 
 
