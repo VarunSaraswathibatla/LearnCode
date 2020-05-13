@@ -246,7 +246,7 @@ for w in range(100):
             if (opt=="T" or opt=="t"):
                         b=input("Enter your friend's name: ")
                         if(a==b):
-                            print("Player names cant be same.....Try giving different player names....")
+                            print("Player names can't be same.....Try giving different player names....")
                             continue
                         else:
                                     p1=[]
