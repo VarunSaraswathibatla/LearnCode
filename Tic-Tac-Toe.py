@@ -1,6 +1,5 @@
-"""                                             VARUN TIC-TAC-TOE MANIA
-
-
+"""                                           
+                                                   VARUN TIC-TAC-TOE MANIA
 
 
 This program is my Tic-Tac-Toe Game.......
