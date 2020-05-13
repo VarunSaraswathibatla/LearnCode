@@ -245,25 +245,29 @@ for w in range(100):
             opt=input("Wanna play Single or Two Player(S/T): ")
             if (opt=="T" or opt=="t"):
                         b=input("Enter your friend's name: ")
-                        p1=[]
-                        p2=[]               
-                        ch1=input("Enter your choice(X/O): ")
-                        if ch1=="X" or ch1=="x":
-                            print("So",b," option will be 'O' so he will start first")
-                            turn=0
-                            play1,play2=b,a
-                            
-                            
-                            
+                        if(a==b):
+                            print("Player names cant be same.....Try giving different player names....")
+                            continue
                         else:
-                            print("So",b, "option will be 'X' so you will start first")
-                            turn=1
-                            play1,play2=a,b
+                                    p1=[]
+                                    p2=[]               
+                                    ch1=input("Enter your choice(X/O): ")
+                                    if ch1=="X" or ch1=="x":
+                                        print("So",b," option will be 'O' so he will start first")
+                                        turn=0
+                                        play1,play2=b,a
+                                        
+                                        
+                                        
+                                    else:
+                                        print("So",b, "option will be 'X' so you will start first")
+                                        turn=1
+                                        play1,play2=a,b
 
 
-                            
-                        display(board)
-                        game(turn,board)
+                                        
+                                    display(board)
+                                    game(turn,board)
             else:
                 b="Computer"
                 p1=[]
