@@ -24,7 +24,7 @@ bool Stack::push(int x,int capacity)
     }
 }
 
-int Stack:: peek()
+int Stack::peek()
 {
     if(first<0)
     {
