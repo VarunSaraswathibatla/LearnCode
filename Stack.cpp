@@ -1,4 +1,4 @@
-/*  This program briefs about "Stack" data structures. */
+/*  This program briefs about "Stack" data structure. */
 
 #include<bits/stdc++.h>
 using namespace std;
