@@ -1,3 +1,5 @@
+/*  This program briefs about "Stack" data structures. */
+
 #include<bits/stdc++.h>
 using namespace std;
 class Stack
