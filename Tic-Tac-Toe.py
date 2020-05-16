@@ -59,11 +59,6 @@ def playercomp(p2,compopt):
 
 
 
-
-
-   
-
-
 def win(board,turn):
     
     if(board[0]==board[1]==board[2]=="X" or  
@@ -131,16 +126,6 @@ def gamesingle(turn,board,compopt,userchoice) :
             else:
                 print("Its Draw")
 
-
-
-
-
-
-
-
-       
-
-
 def game(turn,board):
     if turn==1:
         play1,play2=a,b
@@ -167,8 +152,6 @@ def game(turn,board):
   
 print("                              Welcome to  Varun Tic-Tac-Toe Mania                                                     ")
 for w in range(100):
-
-
             board=list(' ' for i in range(9))
             a=input("Enter your name: ")
             opt=input("Wanna play Single or Two Player(S/T): ")
@@ -182,15 +165,10 @@ for w in range(100):
                             turn=0
                             play1,play2=b,a
                             
-                            
-                            
                         else:
                             print("So",b, "option will be 'X' so you will start first")
                             turn=1
                             play1,play2=a,b
-
-
-                            
                         display(board)
                         game(turn,board)
             else:
