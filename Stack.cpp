@@ -61,7 +61,7 @@ int main()
      int a[100];
     class Stack s;
     
-    cout<<"Enter Stack capacity:"<<endl;
+    cout<<"Enter Stack capacity( <100):"<<endl;
     cin>>sc;
     
     cout<<"Stack of size "<<sc<<" is created......."<<endl;
@@ -70,7 +70,10 @@ int main()
     
     cout<<"Enter number of elements you wanted inside the Stack: "<<endl;
     cin>>n;
+    if(n>0)
+    {
     cout<<"Enter the elements line by line:"<<endl;
+    }
     for(i=0;i<n;i++)
     {
        cin>>a[i]; 
