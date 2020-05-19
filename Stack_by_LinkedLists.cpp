@@ -57,7 +57,10 @@ int main()
     peek(top);
     cout<<"Enter the number of elements you want to add to the Stack:"<<endl;
     cin>>n;
+    if(n>0)
+    {
     cout<<"Enter the elements line by line:"<<endl;
+    }
     for(i=0;i<n;i++)
     {
         cin>>arr[i];
