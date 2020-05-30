@@ -1,5 +1,5 @@
 /* This program uses BFS to find the solution for famous Water-Jug problem.....
-Two jugs Jug1 and Jug2 with given max capacity are given and no markings available to measure the water level in the jugs
+Two jugs Jug1 and Jug2 with finite max capacity are given and no markings available to measure the water level in the jugs
 Given a target level which is needed to be measured in Jug1......
 Find the possibilty for above problem and if  possible determine path for the result
 
