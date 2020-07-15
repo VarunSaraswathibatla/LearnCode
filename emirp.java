@@ -16,18 +16,18 @@ class Emirp
 
 	public static void main(String args[])  
 	{ 
-		Scanner sc=new Scanner(System.in);
+          Scanner sc=new Scanner(System.in);
 	  int num=sc.nextInt();
-    int rev=reverse(num);
-    if(isPrime(num) && isPrime(rev))
-      {
-        System.out.println("Yes");
-      }
-    else
-      {
-        System.out.println("No");
-      }
-  }
+          int rev=reverse(num);
+	  if(isPrime(num) && isPrime(rev))
+	      {
+		System.out.println("Yes");
+	      }
+	  else
+	      {
+		System.out.println("No");
+	      }
+	  }
      
      public static int reverse(int n)
      {
