@@ -1,2 +1,0 @@
-# NFS AND CF
-
