@@ -57,7 +57,7 @@ int main()
     cout<<"No of columns:"<<endl;
     cin>>c;
     cout<<"Enter the status of the grid row by row"<<endl;
-    for(i=0;i<r;i++)
+    for(i = 0;i < r;i++)
     {
     
         string s;
@@ -65,7 +65,7 @@ int main()
         vector<char> row;
         cin>>s;
         l=s.length();
-        for(z=0;z<l;z++)
+        for(z = 0;z < l;z++)
         {
             row.push_back(s[z]);
         }
