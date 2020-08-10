@@ -15,15 +15,8 @@ public class AddDigits
 {
   public static void addDigits(int num)
     {
-       if(num%9 == 0)
-       {
-         System.out.println("9");
-       }
-       else
-       {
-         System.out.println(num%9);
-       }
-     }  
+      System.out.println((num%9 == 0) ?9:(num%9));
+    }
          
   public static void main(String args[])
    {
