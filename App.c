@@ -13,15 +13,15 @@ struct node *cur,*temp,*first,*last,*temp1,*temp2,*current,*ind,*temp3,*node1,*n
 struct node *curloop,*temploop,*temp1loop,*temp2loop,*temp3loop,*firstloop,*lastloop,*delloop;
 int pos,i,cloop,nloop;
 void insert();
-void delete();
+void del();
 void display();	
 
 
 
 
 
-
-void insert()          // Creates a new node if nexted list is empty or else inserts at the end.
+ // Creates a new node if nexted list is empty or else inserts at the end.
+void insert()         
  {  
 	cur=(struct node *)malloc(sizeof(struct node));
 
@@ -33,19 +33,99 @@ void insert()          // Creates a new node if nexted list is empty or else ins
 
 	printf("ENTER MARKS 2:\n");
 	scanf("%f",&cur->m2);
-
-	if(first==NULL) { //Empty List
+//Empty List
+	if(first==NULL) 
+	{ 
 		first=cur;
 		last=cur;
 		cur->next=NULL;
-	} else { // Insert at last.
+	}
+	// Insert at last.
+	 else 
+	{ 
 		last->next=cur;
 		last=cur;
 		cur->next=NULL;
 	}
 }
+void insertbeg() // Inserts a node in the beginning
+{
+	cur=(struct node*)malloc(sizeof(struct node));
+	printf("ENTER THE ROLL NUMBER:\n");
+	scanf("%d",&cur->rollno);
+	printf("ENTER MARKS 1:\n");
+	scanf("%f",&cur->m1);
+	printf("ENTER MARKS 2:\n");
+	scanf("%f",&cur->m2);
+	if(first!=NULL) // If list is not empty
+	{
 
-void delete() // Deletes the entire nexted List.
+		cur->next=first;
+		first=cur;
+	}
+	else 
+	{
+		cur->next=NULL;
+		first=cur;
+		last=cur;
+	}
+
+}
+void insertatpos() // inserts a node at a given postion
+{
+	if(first==NULL)
+	{
+		printf("List is Empty!!!\n");
+	}
+	else 
+	{
+		printf("Enter the position\n");
+		scanf("%d",&pos);
+		cur=(struct node*)malloc(sizeof(struct node));
+
+		if(pos<1) 
+		{
+			printf("Invalid Position\n");
+			return;
+		}
+		if(pos==1) 
+		{
+			insertbeg();
+			return;
+		}
+	
+		temp=first;
+
+		for(i=0; i<pos-2; i++) 
+		{
+			if(temp->next!=NULL)
+			{
+				temp=temp->next;
+			}
+	        else
+	        {
+	        	printf("invalid position\n");
+	        	return;
+			}
+		}
+		printf("ENTER THE ROLL NUMBER:\n");
+		scanf("%d",&cur->rollno);
+		printf("ENTER MARKS 1:\n");
+		scanf("%f",&cur->m1);
+		printf("ENTER MARKS 2:\n");
+		scanf("%f",&cur->m2);
+		cur->next=temp->next;
+		temp->next=cur;
+		if(cur->next==NULL)
+		{
+			last=cur;
+		}
+	}
+
+}
+
+// Deletes the entire nexted List.
+void del() 
 {
 	if(first==NULL) {
 		printf("List is Empty to be deleted\n");
@@ -181,7 +261,7 @@ void displayloop()
 		{
 			if(curloop->rollno==temploop->rollno)
 			{
-			printf("%d %.2f %.2f ------ is a looped element with Roll Number %d\n",curloop->rollno,curloop->m1,curloop->m2,lastloop->rollno);
+			printf("\n\nRoll No :%d\nMarks1: %.2f\nMarks 2: %.2f ------ is a looped element with Roll Number %d\n",curloop->rollno,curloop->m1,curloop->m2,lastloop->rollno);
 			
 			}
 			else
@@ -205,82 +285,8 @@ else
 }		
 }
 
-void insertbeg() // Inserts a node in the beginning
-{
-	cur=(struct node*)malloc(sizeof(struct node));
-	printf("ENTER THE ROLL NUMBER:\n");
-	scanf("%d",&cur->rollno);
-	printf("ENTER MARKS 1:\n");
-	scanf("%f",&cur->m1);
-	printf("ENTER MARKS 2:\n");
-	scanf("%f",&cur->m2);
-	if(first!=NULL) // If list is not empty
-	{
 
-		cur->next=first;
-		first=cur;
-	}
-	else 
-	{
-		cur->next=NULL;
-		first=cur;
-		last=cur;
-	}
 
-}
-
-void insertatpos() // inserts a node at a given postion
-{
-	if(first==NULL)
-	{
-		printf("List is Empty!!!\n");
-	}
-	else 
-	{
-		printf("Enter the position\n");
-		scanf("%d",&pos);
-		cur=(struct node*)malloc(sizeof(struct node));
-
-		if(pos<1) 
-		{
-			printf("Invalid Position\n");
-			return;
-		}
-		if(pos==1) 
-		{
-			insertbeg();
-			return;
-		}
-	
-		temp=first;
-
-		for(i=0; i<pos-2; i++) 
-		{
-			if(temp->next!=NULL)
-			{
-				temp=temp->next;
-			}
-	        else
-	        {
-	        	printf("invalid position\n");
-	        	return;
-			}
-		}
-		printf("ENTER THE ROLL NUMBER:\n");
-		scanf("%d",&cur->rollno);
-		printf("ENTER MARKS 1:\n");
-		scanf("%f",&cur->m1);
-		printf("ENTER MARKS 2:\n");
-		scanf("%f",&cur->m2);
-		cur->next=temp->next;
-		temp->next=cur;
-		if(cur->next==NULL)
-		{
-			last=cur;
-		}
-	}
-
-}
 
 void delatfirst() // Deletes first node of the list.
 {
@@ -328,21 +334,21 @@ void delatposloop() // Deletes a node at a given position in LOOP LINKED LIST.
     int in;
 	if(firstloop==NULL) 
 	{
-		printf("List is Empty!!!\n");
+		printf("\nList is Empty!!!\n");
 		return;
 	}
-	printf("Enter the position of the node to be deleted:\n");
+	printf("\nEnter the position of the node to be deleted:\n");
 	scanf("%d",&in);
 	if(in<1) 
 	{
-		printf("Invalid Position\n");
+		printf("\nInvalid Position\n");
 		return;
 	}
 	if(in==1) 
 	{
 		if(firstloop==NULL) 
 	{
-		printf("Loop Linked List is Empty to be deleted\n");
+		printf("\nLoop Linked List is Empty to be deleted\n");
 		return;
 	} 
 	else 
@@ -357,7 +363,7 @@ void delatposloop() // Deletes a node at a given position in LOOP LINKED LIST.
 				nloop=0;
 			}
 		}
-		printf("Deleted Entry is: %d %.2f %.2f\n",curloop->rollno,curloop->m1,curloop->m2);
+		printf("\nDeleted Entry is: Roll no %d\nMarks 1 %.2f\nMarks 2: %.2f\n",curloop->rollno,curloop->m1,curloop->m2);
 		free(curloop);
 		cloop=cloop-1;
 		return;
@@ -374,8 +380,10 @@ void delatposloop() // Deletes a node at a given position in LOOP LINKED LIST.
 			{
 				
 				delloop=delloop->next;
-			} else {
-				printf("Out of limit position\n");
+			} 
+			else
+		     {
+				printf("\nOut of limit position\n");
 				return;
 			}
 		}
@@ -389,11 +397,13 @@ void delatposloop() // Deletes a node at a given position in LOOP LINKED LIST.
 			}
 			
 		}
-			printf("Deleted  Entry is %d %.2f %.2f\n",delloop->next->rollno,delloop->next->m1,delloop->next->m2);
+			printf("Deleted  Entry is Roll no %d\n Marks 1: %.2f\n Marks 2 %.2f\n",delloop->next->rollno,delloop->next->m1,delloop->next->m2);
 			free(delloop->next);
 			cloop=cloop-1;
 			delloop->next=delloop->next->next;
-		} else {
+		} 
+		else
+		 {
 			printf("Out of limit position\n");
 		}
 		if(delloop->next==NULL)
@@ -411,7 +421,7 @@ void delatpos() // Deletes a node at a given position.
 		printf("List is Empty!!!\n");
 		return;
 	}
-	printf("Enter the position of the node to be deleted:\n");
+	printf("\nEnter the position of the node to be deleted: \n");
 	scanf("%d",&pos);
 	if(pos<1) 
 	{
@@ -435,17 +445,19 @@ void delatpos() // Deletes a node at a given position.
 				
 				temp=temp->next;
 			} else {
-				printf("Out of limit position\n");
+				printf("\nOut of limit position\n");
 				return;
 			}
 		}
 		if(temp->next!=NULL) 
 		{
-			printf("Deleted  Entry is %d %.2f %.2f\n",temp->next->rollno,temp->next->m1,temp->next->m2);
+			printf("Deleted  Entry is ROll No :%d\nMarks 1:  %.2f\nMarks 2: %.2f\n",temp->next->rollno,temp->next->m1,temp->next->m2);
 			free(temp->next);
 			temp->next=temp->next->next;
-		} else {
-			printf("Out of limit position\n");
+		}
+		 else
+	    {
+			printf("\nOut of limit position\n");
 		}
 		if(temp->next==NULL)
 		{
@@ -460,7 +472,7 @@ int len()
 	if(first==NULL)
 	{
 		printf("\nList is Empty");
-		return;
+		return 0;
 	}
 	else
 	{
@@ -481,15 +493,16 @@ void displaynfromlast()
 {
 
 	int pos,l=0,i;
-	printf("\nEnter the position from end:");
-	scanf("%d",&pos);
+	
 	temp1=first;
 	temp2=first;
 	if(temp1==NULL)
 	{
-		printf("\nList is empty");
+		printf("\n----List is empty!!!!----\n");
 		return;
 	}
+	printf("\nEnter the position from end: ");
+	scanf("%d",&pos);
 	while(temp1!=NULL)
 	{
 		temp1=temp1->next;
@@ -626,6 +639,7 @@ void pair_swap()
 		temp1=temp1->next->next;
     }
     printf("\nSuccessfully Pair-Swapped...\n");
+    display();
 }
 /*number of times m1 and m2 are repaeating */
 void countofrep()
@@ -636,7 +650,7 @@ void countofrep()
 	c=len();
 	if(first==NULL)
 	{
-		printf("\nEmpty list");
+		printf("\nEmpty list!!!!!!!");
 	}
 	else
 	{
@@ -679,14 +693,14 @@ void countofrep()
         {
             if(visit1[i]>=1)
             {
-                printf("%d repeats %d time(s)\n", arr1[i], visit1[i]);
+                printf("\n%d repeats %d time(s)\n", arr1[i], visit1[i]);
             }
         }
         printf("\nRepetition of marks in m2:\n");
         for(i=0;i<c;i++){
     	    if(visit2[i]>=1)
 		    {
-        	    printf("%d repeats %d time(s)\n", arr2[i], visit2[i]);
+        	    printf("\n%d repeats %d time(s)\n", arr2[i], visit2[i]);
 		    }
 	    }
     }
@@ -694,7 +708,7 @@ void countofrep()
 void swap()
 {
     int n1,n2;
-	printf("\n Enter the RollNumbers to be Swapped\n");
+	printf("\n Enter the Roll Numbers to be Swapped\n");
 	scanf("%d",&n1);
 	scanf("\n%d",&n2);
 	node1=first;
@@ -703,7 +717,7 @@ void swap()
 	
 	if(n1==n2)
 	{
-		printf("\n Same RollNumbers can't be swapped\n");
+		printf("\n Same Roll Numbers can't be swapped\n");
 		return;
 	}
 	while(node1->rollno!=n1 && node1!=NULL)
@@ -745,9 +759,8 @@ void swap()
 		node2->m2=temp4->m2;
 		free(temp4);
 		printf("\n The Given Two Nodes are Swapped successfully\n");
-		
-	
-}
+    }
+    display();
 }
 
 void sorter()
@@ -844,7 +857,7 @@ void display() // Displays the List.
 		printf("\n");
 		while   (cur!=NULL) 
 		{
-			printf("%d %.2f %.2f \n",cur->rollno,cur->m1,cur->m2);
+			printf("\n\nRoll Number : %d \nMarks 1: %.2f\nMarks 2: %.2f \n",cur->rollno,cur->m1,cur->m2);
 			cur=cur->next;
 		}
 	}
@@ -852,13 +865,14 @@ void display() // Displays the List.
 int main() 
 {
 	int ch;
-	printf("\n----------------------------------------------------------WELCOME TO LINKED LIST APP-----------------------------------------------------------------------------------\n\n");
+	printf("\n---------------------------------------WELCOME TO LINKED LIST APP------------------------------------------------\n\n");
 
 	while(1) 
 	{
-		printf("\n1.Insert/Insert at Last\n2.Insert at any position\n3.Delete the Entire linked list\n4.Delete the first entry\n5.Delete the last entry\n6.Delete the entry at a Position\n7.Length of linked list\n8.Display n'th node from last\n9.Search the RollNumber\n10.Print The Middle Entry\n11.Display Nth Node\n12.Place Last Entry First\n13.Pair-Swap the Linked List\n14.Swap the given two nodes\n15.Print number of times Marks1 and Marks2 are Repeating\n16.Delete Duplicate Roll-Numbers from list\n17.Delete duplicate elements from sorted elements\n18.Display\n19.Exit\n");
-		printf("\n\nLOOP FUNCTIONS:These fuctions are applicable only to the created new Linked Loop List\n");
-		printf("20.Insert\n21.Create Loop\n22.Length of the loop\n23.Intersection Point of List-1 and Looped Linked List\n24.Delete an Entry from the Looped Linked List\n25.Display\n26.Exit\n\n");
+		printf("\n1.Insert at Last\n2.Insert at any position\n3.Insert at begining\n4.Delete the Entire linked list\n5.Delete the first entry\n6.Delete the last entry\n7.Delete the entry at a Position\n8.Length of linked list\n9.Display n'th node from last\n10.Search the RollNumber\n11.Print The Middle Entry\n12.Display Nth Node\n13.Place Last Entry First\n14.Pair-Swap the Linked List\n15.Swap the given two nodes\n16.Print number of times Marks1 and Marks2 are Repeating\n17.Delete Duplicate Roll-Numbers from list\n18.Delete duplicate elements from sorted elements\n19.Display\n20.Exit\n");
+		printf("\n\nLOOP FUNCTIONS: These fuctions are applicable only to the created new Linked Loop List\n");
+		printf("21.Insert\n22.Create Loop\n23.Length of the loop\n24.Intersection Point of List-1 and Looped Linked List\n25.Delete an Entry from the Looped Linked List\n26.Display\n27.Exit\n\n");
+		
 		scanf("%d",&ch);
 		switch(ch) {
 			case 1:
@@ -867,83 +881,87 @@ int main()
 				
 			case 2:
 				insertatpos();
+				break;
+			case 3:
+			    insertbeg();
 				break;	
 					
-			case 3:
-				delete();
-				break;
 			case 4:
+				del();
+				break;
+				
+			case 5:
 				delatfirst();
 				break;
-			case 5:
+			case 6:
 				delatend();
 				break;
-			case 6:
+			case 7:
 				delatpos();
 				break;
-			case 7:
+			case 8:
 				len();
 				break;
-			case 8:
+			case 9:
 				displaynfromlast();
 				break;
-			case 9:
+			case 10:
 				searchite();
 				break;	
-			case 10:
+			case 11:
 				findMiddle();
 				break;
-			case 11:
+			case 12:
 				nthnode();
 				break;	
-			case 12:
+			case 13:
 				lasttofirst();
 				break;
-			case 13:
+			case 14:
 				pair_swap();
 				break;
-			case 14:
+			case 15:
 				swap();
 				break;
-			case 15:
-				countofrep();
-				break;
 			case 16:
-				delduplicate();
+				countofrep();
 				break;
 			case 17:
 				delduplicate();
+				break;
+			case 18:
+				delduplicate();
 				sorter();
 				break;	
-			case 18:
+			case 19:
 				display();
 				break;	
-			case 19:
+			case 20:
 				return 0;
 				break;
-			case 20:
+			case 21:
 				insertloop();
 				break;
-			case 21:
+			case 22:
 				createloop();
 				break;
-			case 22:
+			case 23:
 				lengthloop();
 				break;	
-			case 24:
+			case 25:
 				delatposloop();
 				break;
-			case 23:
+			case 24:
 				intersectionloop();
 				break;	
 				
-			case 25:
+			case 26:
 				displayloop();
 				break;	
 				
 		
-			case 26:
-				return 0;
+			case 27:
+				exit(0);
 				break;
 			
 			default:
@@ -951,6 +969,7 @@ int main()
 				break;
 
 		}
+		printf("***********************************************************************************");
 
 
 	}
