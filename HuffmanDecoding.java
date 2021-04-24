@@ -1,9 +1,9 @@
 /*https://www.hackerrank.com/challenges/tree-huffman-decoding/problem*/
 
-/* Complete the following decide method*/
+/* Complete the following decode method*/
 
 	void decode(String s, Node root) 
-    {
+    	{
         // Start your code here
     
         StringBuilder ans= new StringBuilder();
